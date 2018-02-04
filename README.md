@@ -1326,6 +1326,6 @@ Cool so, now you can pretty do everything with Sinatra that you were doing with 
  
  * Make the add, delete, and update buttons send AJAX requests (using jQuery's `$.ajax`) to your new routes, and when they get JSON back, they will update the html on the page accordingly with DOM manipulation. There should be no page refreshing for any `/item` routes. 
  * Rember to clear the Add Item input field when you do a successful add, and hide the update form once you've successfully updated.
- * Note: For this entire part, if you need to somehow disable security or have these new routes not check if the user is logged in, to get everything working, that's ok.
+
   
 
