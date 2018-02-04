@@ -1316,7 +1316,7 @@ Cool so, now you can pretty do everything with Sinatra that you were doing with 
 ### Separate the back and front end: 
  
  * Add jQuery to the `layout.erb`. 
- * Create additional routes (leave the old ones) that do the same CRUD operations using ActiveRecord, but that only send back JSON.  ***Use Postman to build and test your routes***. (See note below about ignoring security). 
+ * Create additional routes (leave the old ones) that do the same CRUD operations using ActiveRecord, but that only send back JSON.   
  * In the JSON responses, include a message in the JSON saying if it was successful or something like that.  Make that part identical for all the routes.  In general make the JSON responses as consistently formatted as possible.
  * Once the user logs in, render (or provide a link to) a new view `:item_index_ajax` that is similar to `item_index` but without the `<forms>`. **Do NOT print the items with erb.** Instead, add client-side JS **AT THE BOTTOM** of `item_index_ajax`, and in your client-side JS, have an ajax 'GET' call that runs when the page loads. If it gets a successful response, that AJAX call's will include (or call a function that includes) logic to add the items to the page using jQuery DOM manipulation.
  
