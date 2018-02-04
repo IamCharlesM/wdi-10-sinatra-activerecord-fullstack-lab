@@ -475,6 +475,23 @@ Yep, that's it. Now see if you can figure out/google how to make your items crea
 </details>
 <br>
 
+Now try to use it.
+
+### Uh oh, it's broke, ain't it?
+
+Would be cool if it worked, but you likely get an error like "Undefined constant Item...." What's that all about? What did we forget? Think about it! See if you can fix it!
+
+<details>
+
+#### config.ru, after controllers
+
+```ruby
+require './models/ItemModel'
+```
+
+</details>
+<br> 
+
 Make sure it works by using `psql` to see what's in your items table.  And check out your terminal where you have `bundle exec rackup` running, and see the SQL that ActiveRecord is writing for you (pretttyyyy colllorrrrss).
 
 <details>
@@ -490,20 +507,6 @@ SELECT * FROM items;
 <br>
 
 If you got JSON in the browser, and data in your items table and it all looks right...
-
-### Uh oh, it's broke, ain't it?
-
-Would be cool if it worked, but you likely get an error like "Undefined constant Item...." What's that all about? What did we forget? Think about it! See if you can fix it!
-
-<details>
-
-#### config.ru, after controllers
-
-```ruby
-require './models/ItemModel'
-```
-
-</details>
 
 ---
 
