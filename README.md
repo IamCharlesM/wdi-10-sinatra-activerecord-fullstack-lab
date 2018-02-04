@@ -343,7 +343,7 @@ end
 `config.ru`
 
 ```ruby
-require './controllers/ItemController
+require './controllers/ItemController'
 ```
 
 ...and farther down...
