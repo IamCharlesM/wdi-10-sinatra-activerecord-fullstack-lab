@@ -475,7 +475,7 @@ Yep, that's it. Now see if you can figure out/google how to make your items crea
 </details>
 <br>
 
-Now try to use it.
+Now try to use it.  Try to add some items with your form.
 
 ### Uh oh, it's broke, ain't it?
 
@@ -492,7 +492,7 @@ require './models/ItemModel'
 </details>
 <br> 
 
-Make sure it works by using `psql` to see what's in your items table.  And check out your terminal where you have `bundle exec rackup` running, and see the SQL that ActiveRecord is writing for you (pretttyyyy colllorrrrss).
+Make sure it works by using `psql` to see what's in your items table.  And check out your terminal where you have `bundle exec rackup` running, and see the SQL that ActiveRecord is writing for you (pretttyyyy colllorrrrss).  Also, notice that in the browser, you can see in the JSON that an ID has been added. That's from the database and it means your insert was successful.
 
 <details>
 
