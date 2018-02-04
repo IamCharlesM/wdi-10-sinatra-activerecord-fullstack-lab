@@ -1295,9 +1295,9 @@ Then in your item index route you can just do this:
 		@items = @user.items
 ```
 
-Once again, head on over to your console and check out what SQL this is writing for you. Pretty sweet!
-
 Now if you log in with different users and add items, you should only see the items for whoever you're logged in as.
+
+Once again, head on over to your console and check out what SQL this is writing for you. Pretty sweet!
 
 > Did you notice that we have not done much to prevent hijacking -- ie, someone could update an item that's not theirs. How would that work and how could we stop it? Where are holes in our "security"?
 
