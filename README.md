@@ -546,7 +546,7 @@ If you got JSON in the browser, and data in your items table and it all looks ri
 </ul> 
 ```
 
-#### views/ItemController.rb (again)
+#### controllers/ItemController.rb (again)
 
 ```ruby
 		# @item.to_json # we will come back to this
