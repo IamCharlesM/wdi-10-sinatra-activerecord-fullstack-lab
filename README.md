@@ -395,7 +395,7 @@ Edit the Item add route to send along all the proper values for the instance var
 
 <details>
 
-`controllers/ItemController.rb`, in the `get '/'` route
+`controllers/ItemController.rb`, in the `get '/add'` route
 ```ruby
 	@page = "Add Item"
 	@action = "/items/add"
@@ -408,7 +408,7 @@ Edit the Item add route to send along all the proper values for the instance var
 </details>
 <br>
 
-Kind of overkill for our purposes...the purpose is just to demonstrate. But it is certainly very DRY!  
+It's overkill for our needs...the purpose is just to demonstrate. But it is certainly very DRY!  
 
 ---
 
