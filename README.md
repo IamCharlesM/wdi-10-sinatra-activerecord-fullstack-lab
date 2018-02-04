@@ -1314,12 +1314,15 @@ Cool so, now you can pretty do everything with Sinatra that you were doing with 
 ## Hungry for more?
 
 * Separate the back and front end: 
+ 
  * Add jQuery to the `layout.erb`. 
  * Create additional routes (leave the old ones) that do the same CRUD operations using ActiveRecord, but that only send back JSON.  ***Use Postman to build and test your routes***. (See note below about ignoring security)
  * Once the user logs in, render (or provide a link to) a new view `:item_index_ajax` that is similar to `item_index` but without the `<forms>`. **Do NOT print the items with erb.** Instead, add client-side JS **AT THE BOTTOM** of `item_index_ajax`, and in your client-side JS, have an ajax 'GET' call that runs when the page loads. If it gets a successful response, that AJAX call's will include (or call a function that includes) logic to add the items to the page using jQuery DOM manipulation.
+ 
   * Each item will still have a delete `<button>`. Just no forms. There won't be any `<form>`s at all.
   * For updating, there will be an "Edit" link for each item that will show a input (NO `<FORM>`, just `<input>`) with the item data already populated, and an "update button." 
   * There will also be an 'Add Item' input and an 'Add Item' button that are always on the page.  
+ 
  * Make the add, delete, and update buttons send AJAX requests (using jQuery's `$.ajax`) to your new routes, and when they get JSON back, they will update the html on the page accordingly with DOM manipulation. There should be no page refreshing for any `/item` routes. 
  * Rember to clear the Add Item input field when you do a successful add, and hide the update form once you've successfully updated.
  * Note: For this entire part, if you need to somehow disable security or have these new routes not check if the user is logged in, to get everything working, that's ok.
