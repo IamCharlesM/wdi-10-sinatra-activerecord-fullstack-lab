@@ -152,7 +152,7 @@ set :views, File.expand_path('../views', File.dirname(__FILE__))
 	<title></title>
 </head>
 <body>
-	<h1 style="border: 1px solid blue; border-radius: 10px">Awesome Item App (this h1 is in layout.erb)</h1>
+	<h1 style="border: 1px solid blue; border-radius: 10px">Awesome Item App (this h1 is in hello.erb)</h1>
 </body>
 </html>
 ```
