@@ -1301,7 +1301,7 @@ Now if you log in with different users and add items, you should only see the it
 
 Cool so, now you can pretty do everything with Sinatra that you were doing with Express.
 
-# You completed the lab/homework! Good job! Make a pull request!
+# You completed the lab/homework! Good job! 
 
 ## Hungry for more?
 
