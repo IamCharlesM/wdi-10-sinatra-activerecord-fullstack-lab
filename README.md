@@ -78,7 +78,7 @@ map('/') {
 
 ### 3. Application controller
 
-Create a barebones ApplicationController.  What does that inherit from?  Give it a '/' default get route and a 404 route.  Hint: try `not_found`.
+Create a barebones ApplicationController.  What does that inherit from?  Give it a '/' default get route.
 
 <details>
 
@@ -92,10 +92,6 @@ class ApplicationController < Sinatra::Base
 
 	get '/' do
 		"hey cool the server runs"
-	end
-
-	not_found do
-		halt 404
 	end
 
 end
