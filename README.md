@@ -319,7 +319,7 @@ Since we're about to have several different views, but still want to have a lot 
 
 ### 7. Item Controller
 
-Add an Item controller with a dummy '/' index/get route and an "add item" route that renders an add item template (that we will create in a second).  Don't forget to map it.
+Add an Item controller with a dummy '/' index/get route and an "add item" route that renders an add item template (that we will create in a second).  Don't forget to require and map it.
 
 <details>
 
@@ -341,6 +341,13 @@ end
 ```
 
 `config.ru`
+
+```ruby
+require './controllers/ItemController
+```
+
+...and farther down...
+
 ```ruby
 map('/items') { 
 	run ItemController
