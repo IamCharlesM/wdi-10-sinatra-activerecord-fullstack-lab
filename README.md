@@ -370,7 +370,9 @@ If you can view '/items' then...
 Create a partial `form.erb` with a form that has a red border that posts to `@action` and a method of `@method` where the text field has a value of `@value` and a placeholder of `@placeholder` and the button has a value of `@buttontext`.
 
 <details>
-`views/form.erb`
+	
+#### views/form.erb
+
 ```erb
 <form style="border: 1px solid red; border-radius: 4px;" action="<%= @action %>" method="<%= @method %>">
  	<input type="text" name="title" value='<%= @value %>' placeholder='<%= @placeholder %>'/>
