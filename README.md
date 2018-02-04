@@ -256,7 +256,7 @@ If you are able to start your server...
 
 Since we're about to have several different views, but still want to have a lot of things consistent across our whole site, we're going to use partials.
 
-:black_small_square: Create a `layout.erb` partial. Cut **all** of the code from `hello.erb` and paste it into `layout.erb`. In `hello.erb`, which should now be empty, add an `h2` saying "this is the hello template":
+:black_small_square: Create a `layout.erb` template. Cut **all** of the code from `hello.erb` and paste it into `layout.erb`. In `hello.erb`, which should now be empty, add an `h2` saying "this is the hello template":
 
 <details>
 
