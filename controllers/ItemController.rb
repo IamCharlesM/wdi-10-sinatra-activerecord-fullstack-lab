@@ -1,5 +1,13 @@
 class ItemController < ApplicationController
 
+	# the code this filter will be run on all /item routes
+	before do
+		if !session[:logged_in]
+			session[:message] = "You must be logged in to do that"
+			redirect '/user/login'
+		end
+	end
+
 	# index route
 	get '/' do
 		# "we have item control"		
