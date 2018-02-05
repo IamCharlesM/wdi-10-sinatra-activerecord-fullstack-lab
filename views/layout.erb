@@ -6,10 +6,19 @@
 </head>
 <body>
 	<nav>
-		<p>
-			<a href="/items">Item index</a> •
-			<a href="/items/add">Add item</a>
-		</p>
+		<div>
+			<p>Nav:</p>
+			<a href="/items">Item list</a> •
+			<a href="/items/add">Add Items</a>
+		</div>
+		<div>
+			<% if !session[:logged_in] %>
+				<a href="/user/login">Login</a>
+			<% else %>
+				<p>Logged in as <%= session[:username] %></p>
+				<a href="/user/logout">Logout</a>
+			<% end %>
+		</div>
 	</nav>
 	<h1>Layout.erb</h1>
 

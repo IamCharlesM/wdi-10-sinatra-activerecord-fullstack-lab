@@ -13,6 +13,10 @@ h1.app-name {
 	border: 1px solid blue; 
 	border-radius: 10px;
 }
+nav {
+	display: flex;
+	justify-content: space-between;
+}
 nav p {
 	display: inline-block;
 }
