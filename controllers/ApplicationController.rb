@@ -12,6 +12,7 @@ class ApplicationController < Sinatra::Base
 
 	get '/' do
 		# "SERVER 👍"
+		@page = "hello"
 		erb :hello
 	end
 
