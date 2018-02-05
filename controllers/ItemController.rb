@@ -20,6 +20,12 @@ class ItemController < ApplicationController
 		erb :add_item
 	end
 
+	get '/edit/:id' do
+		@item = Item.find params[:id]
+		@page = "Edit item #{@item.id}"
+		erb :edit_item
+	end
+
 	# create route
 	post '/add' do 
 		pp params
@@ -41,4 +47,15 @@ class ItemController < ApplicationController
 		redirect '/items'
 	end
 
+	patch '/:id' do
+		@item = Item.find params[:id]
+		@item.title = params[:title]
+		@item.save
+		redirect '/items'
+	end
+
 end
+
+
+
+

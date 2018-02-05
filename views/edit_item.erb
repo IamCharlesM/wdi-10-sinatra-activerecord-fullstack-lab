@@ -1,0 +1,7 @@
+<h2>Edit Item <%= @item.id %></h2>
+
+<form action="/items/<%= @item.id %>" method="POST">
+	<input type="hidden" name="_method" value="PATCH" />
+	<input type="text" size="60" name="title" placeholder="enter updated value" value="<%= @item.title %>" />
+	<button>Update Item</button>	
+</form>
