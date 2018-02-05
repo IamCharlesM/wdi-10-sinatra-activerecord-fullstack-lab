@@ -8,6 +8,10 @@ class ItemController < ApplicationController
 		end
 	end
 
+	get '/ajax' do
+		erb :item_index_ajax
+	end
+
 	# index route
 	get '/' do
 		@user = User.find session[:user_id]
@@ -17,8 +21,21 @@ class ItemController < ApplicationController
 		erb :item_index
 	end
 
-	get '/ajax' do
-		erb :item_index_ajax
+	# json index route
+	get '/j' do
+		@user = User.find session[:user_id]
+		@items = @user.items.order(:id)
+		# building our API response
+		# instead of just sending back random json
+		resp = {
+			status: {
+				all_good: true,
+				number_of_results: @items.length
+			},
+			items: @items
+		}
+		resp.to_json
+
 	end
 
 	# add route
