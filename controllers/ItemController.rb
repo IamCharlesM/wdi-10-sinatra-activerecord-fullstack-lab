@@ -20,6 +20,7 @@ class ItemController < ApplicationController
 		erb :add_item
 	end
 
+	# edit route
 	get '/edit/:id' do
 		@item = Item.find params[:id]
 		@page = "Edit item #{@item.id}"
@@ -36,6 +37,8 @@ class ItemController < ApplicationController
 		@item.user_id = 1
 		@item.save
 
+		session[:message] = "You added item #{@item.id}"
+
 		# @item.to_json
 		redirect '/items'
 
@@ -44,13 +47,16 @@ class ItemController < ApplicationController
 	delete '/:id' do
 		@item = Item.find params[:id]
 		@item.delete
+		session[:message] = "You deleted item #{@item.id}"
 		redirect '/items'
 	end
 
+	#update route
 	patch '/:id' do
 		@item = Item.find params[:id]
 		@item.title = params[:title]
 		@item.save
+		session[:message] = "You updated item #{@item.id}"
 		redirect '/items'
 	end
 
