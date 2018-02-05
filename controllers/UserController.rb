@@ -13,8 +13,10 @@ class UserController < ApplicationController
 	end
 
 	post '/login' do
+		@pw = params[:password]
+		
 		@user = User.find_by(username: params[:username])
-		if @user && @user.password == params[:password]
+		if @user && @user.autheticate(@pw)
 			session[:username] = @user.username
 			session[:logged_in] = true
 			session[:user_id] = @user.id
