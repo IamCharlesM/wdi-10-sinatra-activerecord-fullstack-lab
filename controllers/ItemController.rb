@@ -57,6 +57,19 @@ class ItemController < ApplicationController
 		erb :edit_item
 	end
 
+	# API edit route
+	get '/j/edit/:id' do
+		@item = Item.find params[:id]
+		resp = {
+			status: {
+				all_good: true,
+				message: "Item found. Sending back item #{params[:id]}"
+			},
+			item: @item
+		}
+		resp.to_json
+	end 
+
 	# create route
 	post '/add' do 
 		pp params
@@ -106,11 +119,11 @@ class ItemController < ApplicationController
 		@item.delete
 		resp = {
 			status: {
-				all_good: true
+				all_good: true,
+				message: "Deleted item #{params[:id]}"
 			}
 		}
 		resp.to_json
-
 	end
 
 	#update route
@@ -120,6 +133,23 @@ class ItemController < ApplicationController
 		@item.save
 		session[:message] = "You updated item #{@item.id}"
 		redirect '/items'
+	end
+
+	# API update route
+	patch '/j/:id' do
+		@item = Item.find_by(id: params[:id])
+		@item.title = params[:title]
+		@item.save
+
+		resp = {
+			status: {
+				all_good: true,
+				message: "updated item #{@item.id}"
+			},
+			item: @item
+		}
+		resp.to_json
+
 	end
 
 end
