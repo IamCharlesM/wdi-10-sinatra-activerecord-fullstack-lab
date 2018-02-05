@@ -3,13 +3,15 @@
 <head>
 	<title><%= @page %></title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<nav>
 		<div>
 			<p>Nav:</p>
 			<a href="/items">Item list</a> •
-			<a href="/items/add">Add Items</a>
+			<a href="/items/add">Add Items</a> •
+			<a href="/items/ajax">AJAX version</a>
 		</div>
 		<div>
 			<% if !session[:logged_in] %>

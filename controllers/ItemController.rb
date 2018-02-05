@@ -12,9 +12,13 @@ class ItemController < ApplicationController
 	get '/' do
 		@user = User.find session[:user_id]
 
-		@items = @user.items # how fucking cool is this
+		@items = @user.items.order(:id) # how fucking cool is this
 
 		erb :item_index
+	end
+
+	get '/ajax' do
+		erb :item_index_ajax
 	end
 
 	# add route
