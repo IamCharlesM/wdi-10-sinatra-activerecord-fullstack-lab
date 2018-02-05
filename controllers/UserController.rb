@@ -17,6 +17,7 @@ class UserController < ApplicationController
 		if @user && @user.password == params[:password]
 			session[:username] = @user.username
 			session[:logged_in] = true
+			session[:user_id] = @user.id
 			session[:message] = "Logged in as #{@user.username}"
 			redirect '/items'
 		else
@@ -33,6 +34,7 @@ class UserController < ApplicationController
 		@user.save
 		session[:logged_in] = true
 		session[:username] = @user.username
+		session[:user_id] = @user.id
 		session[:message] = "Thanks for signing up We're going to sell your data to cambridge analytica just kidding"
 		redirect '/items'
 	end
@@ -41,8 +43,9 @@ class UserController < ApplicationController
 	get '/logout' do
 		session[:logged_in] = false
 		session[:username] = nil
+		session[:user_id] = nil
 		session[:message] = "bye"
-		
+
 		redirect '/user/login'
 	end
 
