@@ -37,4 +37,14 @@ class UserController < ApplicationController
 		redirect '/items'
 	end
 
+
+	get '/logout' do
+		session[:logged_in] = false
+		session[:username] = nil
+		session[:message] = "bye"
+		
+		redirect '/user/login'
+	end
+
+
 end
