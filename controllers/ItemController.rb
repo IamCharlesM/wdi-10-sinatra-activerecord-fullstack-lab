@@ -74,6 +74,25 @@ class ItemController < ApplicationController
 
 	end
 
+	post '/j' do
+		@item = Item.new
+		@item.title = params[:title]
+		@item.user_id = session[:user_id]
+		@item.save
+
+		resp = {
+			# you could include a message or something
+			# you could include pagination info
+			status: {
+				all_good: true
+				# you could put other infor here
+			},
+			item: @item
+		}
+		resp.to_json
+
+	end
+
 	delete '/:id' do
 		@item = Item.find params[:id]
 		@item.delete

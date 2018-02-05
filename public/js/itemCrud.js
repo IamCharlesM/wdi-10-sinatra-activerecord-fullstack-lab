@@ -1,8 +1,43 @@
 // console.log("clinet side js is here")
 // $('body').append($('<p>Hey JQ</p>'))
 
+$('#add-item').on('click', (event) => {
 
-printResults = (data) => {
+	const title = $('#new-item').val();
+
+	// send a post request
+	$.ajax({
+		url: '/items/j',
+		method: 'POST', 
+		dataType: 'JSON',
+		data: {
+			title: title
+		}, 
+		success: (data) => {
+			$('#new-item').val("");
+			getItems();
+		}, 
+		fail: (err) => {
+			console.log('post is broke', err)
+		}
+	})
+})
+
+const getItems = () => {
+	// index
+	$.ajax({
+		url: '/items/j',
+		method: 'GET',
+		dataType: 'JSON',
+		success: printResults, 
+		fail: (err) => {
+			console.error('index/get is broke', err)
+		}
+	})
+}
+
+const printResults = (data) => {
+	$('#items').empty();
 	const theItems = data.items;
 	data.items.forEach((item) => {
 		const $item = $('<li data-thisitem="' + item.id + '">');
@@ -13,13 +48,4 @@ printResults = (data) => {
 	});	
 }
 
-// index
-$.ajax({
-	url: '/items/j',
-	method: 'GET',
-	dataType: 'JSON',
-	success: printResults, 
-	fail: (err) => {
-		console.error('index/get is broke', err)
-	}
-})
+getItems();
