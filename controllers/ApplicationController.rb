@@ -5,6 +5,10 @@ class ApplicationController < Sinatra::Base
 
 	set :views, File.expand_path('../views', File.dirname(__FILE__))
 
+	ActiveRecord::Base.establish_connection(
+ 		:adapter => 'postgresql', 
+ 		:database => 'item'
+	)
 
 	get '/' do
 		# "SERVER 👍"
