@@ -1,6 +1,13 @@
 // console.log("clinet side js is here")
 // $('body').append($('<p>Hey JQ</p>'))
 
+
+$('#items').on('click', 'li', (event) => {
+	console.log($(event.currentTarget).data('thisitem'));
+	console.log($(event.target).data('action'));
+})
+
+
 $('#add-item').on('click', (event) => {
 
 	const title = $('#new-item').val();
@@ -42,8 +49,8 @@ const printResults = (data) => {
 	data.items.forEach((item) => {
 		const $item = $('<li data-thisitem="' + item.id + '">');
 		$item.text(item.title);
-		$item.append($('<button>Delete</button>'));
-		$item.append($('<a href="#">Edit</a>'))
+		$item.append($('<button data-action="delete">Delete</button>'));
+		$item.append($('<a href="#" data-action="edit">Edit</a>'))
 		$('#items').append($item)
 	});	
 }
