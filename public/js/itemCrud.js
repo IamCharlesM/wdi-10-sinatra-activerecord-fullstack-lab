@@ -14,7 +14,23 @@ const deleteItem = (itemId) => {
 }
 
 const updateItem = (itemId) => {
-	console.log("update item " + itemId + " forthcoming");
+	console.log("updating item " + itemId);
+
+	const title = $('#update-item').val();
+
+	$.ajax({
+		url: '/items/j/' + itemId,
+		method: 'PATCH',
+		dataType: 'JSON',
+		data: {
+			title: title
+		},
+		success: getItems,
+		fail: (err) => {
+			console.error('patch failed')
+		}
+	})
+
 }
 // this will show a prepopulated input where the user will update the data and press a button that will send a PATCH request to perform the update in the database
 const showEditor = (data) => {
@@ -34,7 +50,7 @@ const showEditor = (data) => {
 	// console.log(which) // this is the item we want to append our form to
 	const $theItem = $(which);
 	const $form = $('<div>');
-	const $input = $('<input type="text" name="title" value="' + data.item.title + '">');
+	const $input = $('<input id="update-item" type="text" name="title" value="' + data.item.title + '">');
 	$form.append($input)
 	const $button = $('<button data-action="update">').text('Update Item');
 	$form.append($button);
