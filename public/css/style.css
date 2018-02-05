@@ -1,0 +1,24 @@
+body {
+	background-color: #edc4b5;
+}
+
+/* from form.erb */
+.form-partial {
+	border: 1px solid red; 
+	border-radius: 4px; 
+}
+
+/* from layout.erb */
+h1.app-name {
+	border: 1px solid blue; 
+	border-radius: 10px;
+}
+nav p {
+	display: inline-block;
+}
+
+/* from hello.erb and/or item_index.erb and/or add_item.erb */
+h2 {
+	border: 1px solid brown; 
+	border-radius: 5px;
+}
