@@ -35,4 +35,10 @@ class ItemController < ApplicationController
 
 	end
 
+	delete '/:id' do
+		@item = Item.find params[:id]
+		@item.delete
+		redirect '/items'
+	end
+
 end

@@ -10,6 +10,9 @@ class ApplicationController < Sinatra::Base
  		:database => 'item'
 	)
 
+	use Rack::MethodOverride  # we "use" middleware in Rack-based libraries/frameworks
+	set :method_override, true
+
 	get '/' do
 		# "SERVER 👍"
 		@page = "hello"
