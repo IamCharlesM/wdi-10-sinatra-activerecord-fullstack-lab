@@ -2,7 +2,10 @@ class ItemController < ApplicationController
 
 	# index route
 	get '/' do
-		"we have item control"		
+		# "we have item control"		
+		@items = Item.all
+		# @items.to_json
+		erb :item_index
 	end
 
 	# add route
@@ -17,6 +20,7 @@ class ItemController < ApplicationController
 		erb :add_item
 	end
 
+	# create route
 	post '/add' do 
 		pp params
 		# "good job you posted check termins"
@@ -26,7 +30,8 @@ class ItemController < ApplicationController
 		@item.user_id = 1
 		@item.save
 
-		@item.to_json
+		# @item.to_json
+		redirect '/items'
 
 	end
 
