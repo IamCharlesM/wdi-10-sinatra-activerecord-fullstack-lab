@@ -1,11 +1,29 @@
 // console.log("clinet side js is here")
 // $('body').append($('<p>Hey JQ</p>'))
 
+const deleteItem = (itemId) => {
+	$.ajax({
+		url: '/items/j/' + itemId,
+		method: 'DELETE',
+		dataType: 'JSON',
+		success: getItems,
+		fail: (err) => {
+			console.error
+		}
+	})
+}
+const editItem = (itemId) => {
+	console.log("Edit forthcoming. Item " + itemId)
+}
 
 $('#items').on('click', 'li', (event) => {
-	console.log($(event.currentTarget).data('thisitem'));
-	console.log($(event.target).data('action'));
+	const itemId = $(event.currentTarget).data('thisitem');
+	const action = $(event.target).data('action');
+
+	if(action=="delete") deleteItem(itemId);
+	if(action=="edit") editItem(itemId);
 })
+
 
 
 $('#add-item').on('click', (event) => {
@@ -44,6 +62,7 @@ const getItems = () => {
 }
 
 const printResults = (data) => {
+	// remove old list
 	$('#items').empty();
 	const theItems = data.items;
 	data.items.forEach((item) => {

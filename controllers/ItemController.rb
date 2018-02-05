@@ -100,6 +100,19 @@ class ItemController < ApplicationController
 		redirect '/items'
 	end
 
+	# API delete route
+	delete '/j/:id' do
+		@item = Item.find params[:id]
+		@item.delete
+		resp = {
+			status: {
+				all_good: true
+			}
+		}
+		resp.to_json
+
+	end
+
 	#update route
 	patch '/:id' do
 		@item = Item.find params[:id]
