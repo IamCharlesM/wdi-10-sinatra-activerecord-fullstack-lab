@@ -13,8 +13,13 @@ class ItemController < ApplicationController
 		@placeholder = "I AM HUNGRY"
 		@value = ""
 		@buttontext = "~*~ADD IT~*~🏈"
-		# res.render()
+	 	# res.render()
 		erb :add_item
+	end
+
+	post '/add' do 
+		pp params
+		"good job you posted check termins"
 	end
 
 end
