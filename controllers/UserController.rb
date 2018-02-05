@@ -27,7 +27,14 @@ class UserController < ApplicationController
 	end
 
 	post '/register' do
-		params.to_json
+		@user = User.new
+		@user.username = params[:username]
+		@user.password = params[:password]
+		@user.save
+		session[:logged_in] = true
+		session[:username] = @user.username
+		session[:message] = "Thanks for signing up We're going to sell your data to cambridge analytica just kidding"
+		redirect '/items'
 	end
 
 end
